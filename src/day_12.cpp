@@ -28,6 +28,8 @@ struct springCond {
 
 vector<springCond> conds;
 
+// Recursion idea found on reddit
+// Recursion function solving part one
 int countArrangements( springCond& c, int rowPos, int groupPos, int groupLen ) {
     int arr = 0;
 
@@ -64,7 +66,8 @@ int countArrangements( springCond& c, int rowPos, int groupPos, int groupLen ) {
     return arr;
 }
 
-int countArrangements2( springCond& record, map<tuple<int,int,int>, int>& visited, const tuple<int,int,int> state) {
+// Recursion using memoization
+int countArrangements2( springCond& record, map<tuple<int,int,int>, int>& visited, const tuple<int,int,int> state ) {
     if (auto const entry = visited.find(state); entry != visited.end())
     {
         auto const& [_, arrangements] = *entry;
@@ -116,7 +119,7 @@ int countArrangements2( springCond& record, map<tuple<int,int,int>, int>& visite
 }
 
 
-signed main() {
+signed main( ) {
     string line;
     freopen("../in.txt", "r", stdin);
 
@@ -157,8 +160,7 @@ signed main() {
     cout << "Part1: " << res1 << endl;
     cout << "Part2: " << res2 << endl;
 
-    cout << "\n\n Comparing solutions!" << endl;
-
+    // Comparing both solutions
     res2 = 0;
     const auto start2 = std::chrono::high_resolution_clock::now();
     for ( auto& c : conds ) {

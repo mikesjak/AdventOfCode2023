@@ -29,12 +29,11 @@ void handleGames( string& game ) {
 
     if ( games[id]["red"] <= 12 && games[id]["green"] <= 13 && games[id]["blue"] <= 14 ) {
             res += id;
-            cout << "Adding: " << id << endl;
     }
     res2 += games[id]["red"] * games[id]["green"] * games[id]["blue"];
 }
 
-int main ( void ) {
+int main ( ) {
 
     string line;
 

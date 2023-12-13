@@ -38,7 +38,7 @@ bool isSymbol( char c ) {
     return true;
 }
 
-set<pair<int, int>> handleNeighbours(int r, int c) {
+set<pair<int, int>> handleNeighbours( int r, int c ) {
     set<pair<int, int>> res;
     cout << "Testing:" << r << " " << c << endl;
     // Up
@@ -63,7 +63,7 @@ set<pair<int, int>> handleNeighbours(int r, int c) {
     return res;
 }
 
-int main ( void ) {
+int main ( ) {
     loadMatrix();
 
     long long r1 = 0;
@@ -71,7 +71,6 @@ int main ( void ) {
 
     for ( int r = 0; r < m.size(); r++ ) {
         set<pair<int, int>> metSymbolsCoords; 
-        cout << "R: " << r << endl;
         for ( int c = 0; c < m[r].size(); c++ ) {
             metSymbolsCoords.clear();
 
@@ -91,17 +90,11 @@ int main ( void ) {
                 for ( auto& p : tmp ){
                     metSymbolsCoords.insert(p);
                 }
-                //cout << m[r][c] << endl;
                 if ( !metSymbolsCoords.empty() ) metSymbol = true;
                 e++;
                 c++;
             }
             e--;
-
-
-            cout << "Start: " << s << endl;
-            cout << "End: " << e << endl;
-            cout << "Bool:" << ( !metSymbolsCoords.empty() ) << endl;
 
             if ( metSymbol ) {
                 int num = 0;
@@ -132,6 +125,6 @@ int main ( void ) {
         }
     }
 
-    cout << "Res: " << r1 << endl;
-    cout << "Res2: " << r2 << endl;
+    cout << "Part1: " << r1 << endl;
+    cout << "Part2: " << r2 << endl;
 }

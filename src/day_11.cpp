@@ -43,7 +43,6 @@ void expandSpace( bool part2 ) {
             }
         }
         if ( empty ) {
-            cout << "Row [" << i << "] is being expanded!" << endl;
             for ( int k = 0; k <= gs.size(); k++ ) {
                 if ( gsOld[k].first > i ) {
                     gs[k].first += 999999;
@@ -78,7 +77,6 @@ ll countDistances() {
     for ( auto& g1 : gs ) {
         for ( auto& g2 : gs ) {
             if ( g1 == g2 ) continue;
-
             res += llabs(g1.first-g2.first)+llabs(g1.second-g2.second);
         }
     }

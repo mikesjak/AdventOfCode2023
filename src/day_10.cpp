@@ -55,10 +55,7 @@ bool isPipe(int x, int y) {
 void handleStartNeighbour( int x, int y ) {
     if ( x > 0 || x >= v.size() || y < 0 || y >= v[x].size() ) return;
     auto r = findNeighbours(x, y);
-    // cout << "N: " << x << " " << y << endl;
     if ( !isPipe(r[0].first, r[0].second) || !isPipe(r[1].first, r[1].second) ) return;
-    // cout << "Nb: " << r.first.first << " " << r.first.second <<  " " << v[r.first.first][r.first.second] << endl;
-    // cout << "Nb: " << r.second.first << " " << r.second.second <<  " " << v[r.second.first][r.second.second] << endl;
     if ( v[r[0].first][r[0].second] == 'S' || v[r[1].first][r[1].second] == 'S' ){
         sn[{x,y}].insert(r[0]);
         sn[{x,y}].insert(r[1]);
@@ -166,8 +163,6 @@ int main ( ) {
         v.push_back(tmp);
         d.push_back(tmpD);
     }
-
-    cout << "Start: " << start.first << " " << start.second << endl;
 
     handleStart();
     for ( auto& p : sn ) {

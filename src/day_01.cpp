@@ -8,7 +8,6 @@
 using namespace std;
 
 static vector<int> lineNums;
-
 static vector<string> words = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 
 bool isANumber( char n ) {
@@ -21,7 +20,6 @@ void handleLine( string& line ) {
     for ( int i = 0; i < line.length(); i++ ) {
         if ( isANumber(line[i]) ) {
             int tmp = (int)line[i]-48;
-            cout << line[i] << " is a number called " << tmp << "!" << endl;
             nums.push_back(tmp);    
         } 
         else {
@@ -29,7 +27,6 @@ void handleLine( string& line ) {
                 for ( int l = 3; l <= 5; l++ ) {
                     if ( line.substr(i, l) == words[s] ) {
                         nums.push_back(s+1);
-                        cout << "Pushing " << s+1 << endl;
                     }
                 }
             }
@@ -37,11 +34,10 @@ void handleLine( string& line ) {
     }
 
     int lineNum = 10*nums[0] + nums[nums.size()-1];
-    cout << "LineNum = " << lineNum << endl;
     lineNums.push_back(lineNum);
 }
 
-int main ( void ) { 
+int main ( ) { 
 
     string line;
 

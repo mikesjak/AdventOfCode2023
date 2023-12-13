@@ -34,7 +34,7 @@ int countRes( vector<ll>& vec, bool part2 ) {
     }
 }
 
-int main ( void ) {
+int main ( ) {
     string line;
     ll res1 = 0, 
         res2 = 0;

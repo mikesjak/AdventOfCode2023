@@ -30,7 +30,7 @@ int countSteps() {
     return res;
 }
 
-int countSteps2(string& start) {
+int countSteps2( string& start ) {
     int i = 0,
         res = 0;
     string curr = start;
@@ -46,7 +46,7 @@ int countSteps2(string& start) {
     return res;
 }
 
-int main ( void ) {
+int main ( ) {
     vector<string> v;
     string line, word;
     getline(cin, line);

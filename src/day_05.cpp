@@ -54,7 +54,7 @@ ll mapSeed( set<tuple<ll, ll, ll>>& m, ll seed ) {
     return seed;
 }
 
-int main ( void ) {
+int main ( ) {
     string line;
     getline(cin, line);
     loadSeeds(line);

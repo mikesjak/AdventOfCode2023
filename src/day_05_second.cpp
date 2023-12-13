@@ -36,7 +36,7 @@ set<tuple<ll, ll, ll>> loadPairs() {
     return res;
 }
 
-void mapSeed(ll &u, ll v, ll src, ll dest, ll range, set<pair<ll, ll>> &newSeeds) {
+void mapSeed( ll &u, ll v, ll src, ll dest, ll range, set<pair<ll, ll>> &newSeeds ) {
     ll u2 = max(u, src);
     ll v2 = min(v, src + range - 1);
     if (u2 > u) {
@@ -49,7 +49,7 @@ void mapSeed(ll &u, ll v, ll src, ll dest, ll range, set<pair<ll, ll>> &newSeeds
     u = v2 + 1;
 }
 
-void mapAllSeeds(ll u, ll v, set<tuple<ll, ll, ll>> &mapping, set<pair<ll, ll>> &newSeeds) {
+void mapAllSeeds( ll u, ll v, set<tuple<ll, ll, ll>> &mapping, set<pair<ll, ll>> &newSeeds ) {
     auto it = mapping.upper_bound({u + 1, -1, -1});
     if (it != mapping.begin()) {
         it--;
@@ -69,7 +69,7 @@ void mapAllSeeds(ll u, ll v, set<tuple<ll, ll, ll>> &mapping, set<pair<ll, ll>> 
     }
 }
 
-int main ( void ) {
+int main ( ) {
     string line;
     getline(cin, line);
     loadSeeds(line);

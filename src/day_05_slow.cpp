@@ -28,13 +28,11 @@ void loadSeeds( string& line ) {
     while( ss >> word ) {
         cout << word;
         seeds.push_back(stoll(word));
-        cout << seeds[seeds.size()-1] << " ";
     }
     cout << endl;
 }
 
 void handleLine( string& line ) { 
-    //cout << "Handling: " << line << endl;
     // Handle num
     if ( isNumber(line[0]) ) {
         istringstream ss(line);
@@ -47,15 +45,10 @@ void handleLine( string& line ) {
         srs = stoll(word);
         ss >> word;
         r = stoll(word);
-        // cout << "Drs: " << drs << endl;
-        // cout << "Srs: " << srs << endl;
-        // cout << "Range: " << r << endl;
 
         for ( int i = 0; i < r; i++ ) {
             pairs[ind][srs+i] = drs+i;
             marked[ind][srs+i] = true;
-
-            cout << "[" << ind << "] " << drs+i << " = " << srs+i << endl;
         }
         
     } // Handle string
@@ -74,10 +67,6 @@ void handleLine( string& line ) {
 
         last = {dest, src};
         if ( src != "seed" ) ind++;
-
-        cout << "Dest: " << dest << endl;
-        cout << "Source: " << src << endl;
-
     }
 }
 
@@ -99,7 +88,7 @@ int handleSeeds() {
     return lowest;
 }
 
-int main ( void ) {
+int main ( ) {
     string line;
     getline(cin, line);
     loadSeeds(line);
@@ -112,7 +101,7 @@ int main ( void ) {
         handleLine(line);
     }
 
-    cout << "Location: " << handleSeeds() << endl;;
+    cout << "Part1: " << handleSeeds() << endl;;
 
     return 0;
 }

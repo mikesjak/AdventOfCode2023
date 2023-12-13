@@ -33,7 +33,7 @@ vector<ll> handleLine( string& line ) {
     return vec;
 }
 
-int main ( void ) {
+int main ( ) {
     string line;
     // Time
     getline(cin, line);
@@ -45,7 +45,7 @@ int main ( void ) {
     ll res = 0;
     vector<ll> ways;
     for ( int i = 0; i < times.size()-1; i++ ) {
-        //res = findWaysToWin(times[i], distances[i]);
+        res = findWaysToWin(times[i], distances[i]);
         ways.push_back(res);
     }
 
@@ -55,6 +55,5 @@ int main ( void ) {
         else res *= w;
     }
 
-    cout << findWaysToWin(7, 9) << endl;
-    cout << findWaysToWin(30, 200) << endl;
+    cout << "Res: " << endl;
 }

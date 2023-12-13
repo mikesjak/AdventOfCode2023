@@ -24,8 +24,6 @@ int handleCard( string& card ) {
     int id = stoi(word);
     copies[id] ++;
 
-    //cout << "ID: " << id << ", copies: " << copies[id] << endl;
-
     // Load winning numbers
     while ( ss >> word ) {
         if ( word == "|" ) break;
@@ -47,13 +45,12 @@ int handleCard( string& card ) {
     // Handle copies
     for ( int i = 1; i <= matches; i++ ) {
         copies[id+i] += copies[id];
-        //cout << "Adding " << copies[id] << " copies to " << id+i << endl;
     }
 
     return worth;
 }
 
-int main ( void ) {
+int main ( ) {
     string line;
     int res2 = 0;
 
@@ -65,8 +62,8 @@ int main ( void ) {
     for ( auto& c : copies )
         res2 += c.second;
 
-    cout << "Res: " << res << endl;
-    cout << "Copies: " << res2 << endl;
+    cout << "Part1: " << res << endl;
+    cout << "Part2: " << res2 << endl;
 
     return 0;
 }
