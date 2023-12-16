@@ -8,3 +8,4 @@ All files have been compiled using ```g++ -std=c++17 -Wall -pedantic``` Apple cl
 
 All tasks are on the official [Advent of Code](https://adventofcode.com/2023) website.
 
+All solutions can be found in [src](https://github.com/mikesjak/AdventOfCode2023/tree/main/src) folder.
