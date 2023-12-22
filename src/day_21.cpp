@@ -22,8 +22,9 @@ using matrix = vector<vector<char>>;
 using node = pair<int, int>;
 
 #define int ll
+#define REFLECTIONS 202300
 
-matrix m;
+matrix m, m2;
 
 /**
  * Finds neighbours for current node
@@ -54,7 +55,7 @@ vector<node> findNeighbours( const node& n ) {
 }
 
 /**
- * BFS function to solve part 1
+ * BFS function to solve AOC 2023 Day 21
  * @param start starting node
  * @param finalDist steps to be done
  * @return number of garden plots reachable with finalDist steps
@@ -75,7 +76,7 @@ int bfs( const node& start, int finalDist ) {
         if ( currDist > finalDist )
             break;
 
-        if ( currDist % 2 == 0 ) {
+        if ( currDist % 2 == finalDist % 2 ) {
             res++;
         }
 
@@ -105,13 +106,43 @@ signed main() {
         char c;
 
         while ( ss >> c ) {
-            if ( c == 'S' )
+            if ( c == 'S' ) {
                 start = {m.size(), tmp.size()};
-            tmp.push_back(c);
+                tmp.push_back('.');
+            }
+            else {
+                tmp.push_back(c);
+            }
         }
         m.push_back(tmp);
+        int lineSize = tmp.size();
+
+        for ( int i = 0; i < (REFLECTIONS*2); i++ ) {
+            for ( int j = 0; j < lineSize; j++ ) {
+                if ( tmp[j] != 'S' ) {
+                    tmp.push_back(tmp[j]);
+                }
+                else {
+                    tmp.push_back('.');
+                }
+            }
+        }
+        m2.push_back(tmp);
+    }
+    for ( int i = 0; i < REFLECTIONS*2; i++ ) {
+        for ( int j = 0; j < m.size(); j++ ) {
+            m2.push_back(m2[j]);
+        }
     }
 
+    node newStart = {start.first+(m.size()*REFLECTIONS+1)-1, start.second+(m[0].size()*REFLECTIONS+1)-1 };
+    m2[newStart.first][newStart.second] = 'S';
+
+    cout << newStart.first << " " << newStart.second << endl;
     res1 = bfs(start, 64);
     cout << "Part1: " << res1 << endl;
+
+    m = m2;
+    res2 = bfs(newStart, 26501365);
+    cout << "Part2: " << res2 << endl;
 }
